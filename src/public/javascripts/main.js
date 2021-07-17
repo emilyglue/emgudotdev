@@ -85,8 +85,7 @@ function clearBoard() {
 }
 
 function initHamburger() {
-  console.log("init hamburger!")
-  let $ham = $('<img>', {id: 'hamburger', src: './icons/hamburger.png'});
+  let $ham = $('<img>', {id: 'hamburger', src: 'public/images/hamburger.png'});
 
   $ham.on('click', function() {
     console.log("click")

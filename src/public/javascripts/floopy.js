@@ -290,6 +290,7 @@ const startGame = function(window, document, drawModule) {
   document.onkeydown = function(event) {
     keyCode = window.event.keyCode;
     if (keyCode === 32) {
+      event.preventDefault();
       if (soundOn) {
         // flapSound.play();
       }
