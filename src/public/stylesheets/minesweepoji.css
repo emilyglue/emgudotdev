@@ -50,6 +50,8 @@ input {
   font-style: italic;
   display: none;
   color: red;
+  text-align: left;
+  font-size: 14px;
 }
 
 #board {

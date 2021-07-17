@@ -28,7 +28,7 @@ function generateInput() {
       $('<input>', {type: 'number', name: prop, id: `${prop}s`}).appendTo($inputDiv);
   }
   $('<button>', {id: 'start', class: 'small'}).text('Start Game').appendTo($inputDiv);
-  $('<p>', {id: 'error'}).html('******* oops the data u entered is INVALID ******* <br/>please have at least a 3x3 grid <br/>but no more than 10x10 <br/>with at least one mine').appendTo($inputDiv);
+  $('<p>', {id: 'error'}).html('- Grid must be at least 3x3 and no more than 10x10 <br/>- Must have at least one mine and less than (row x col) mines').appendTo($inputDiv);
   $('#start').on('click', generateBoard);
 }
 
