@@ -108,7 +108,11 @@ const drawModule = function() {
   }
 
   const drawClouds = function(x, y, image) {
-    ctx.drawImage(image, x, y, cloudWidth, cloudHeight);
+    try {
+      ctx.drawImage(image, x, y, cloudWidth, cloudHeight);
+    } catch (error) {
+      // console.log(error);
+    }
   }
 
   const checkCollision = function() {
@@ -138,7 +142,7 @@ const drawModule = function() {
   const addCloud = function() {
     const cloudX = w;
     const cloudY = Math.floor(Math.random()*h);
-    const cloud = Math.floor(Math.random()*2+1);
+    const cloud = Math.floor(Math.random()*4+1);
     const cloudImg = new Image();
     cloudImg.src = `public/images/cloud-${cloud}.png`;
     clouds.push({image: cloudImg, x: cloudX, y: cloudY});
