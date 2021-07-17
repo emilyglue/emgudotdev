@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>the game stop</title>
+    <link rel="shortcut icon" type="image/ico" href="./icons/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300,400&family=Roboto:wght@300,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="public/stylesheets/arcade.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="public/stylesheets/minesweeper.css">
+
+  </head>
+  <body>
+    <header class="col">
+      <h1>the game stop</h1>
+    </header>
+    <nav class="col">
+      <ul>
+        <li><a type="button" href="./index.html">about</a></li>
+        <li><a type="button" href="#" id="minesweeper">minesweeper</a></li>
+        <li><a type="button" href="#" id="floopy-bird">floopy</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <div class="preview" id="prv-about">
+        <h2>About</h2>
+      </div>
+      <div class="preview" id="prv-ms">
+        <h2>Minesweeper</h2>
+        <p>can you sweep all the mines</p>
+        <!-- <img> -->
+      </div>
+      <div class="preview" id="prv-fb">
+        <h2>Floopy Bird</h2>
+        <p>Test your flooping skills!</p>
+        <!-- <img> -->
+      </div>
+
+      <h2 id="title"></h2>
+      <canvas id="gameCanvas"></canvas>
+      <div id="board"></div>
+
+    </main>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="public/javascripts/sweeper.js"></script>
+    <script src="public/javascripts/floopy.js"></script>
+    <script src="public/javascripts/main.js"></script>
+  </body>
+</html>

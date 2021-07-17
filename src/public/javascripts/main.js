@@ -1,0 +1,127 @@
+const music = new Audio('../sound/wii-plaza.mp3');
+
+$('header').on('click', playMusic)
+
+$('#about').on('mouseover', previewAbout);
+
+$('#floopy-bird').on('mouseover', previewFloopy);
+// $('#floopy-bird').on('mouseout', clearPreview);
+$('#floopy-bird').on('click', initGame);
+
+$('#minesweeper').on('mouseover', previewSweeper);
+// $('#minesweeper').on('mouseout', clearPreview);
+$('#minesweeper').on('click', initGame);
+
+function initGame() {
+  clearPreview();
+  clearPreviewEvents();
+  music.pause();
+
+  $('h1').addClass('zoomOut');
+
+  setTimeout(function() {
+    $('header').addClass('disappear');
+    $('nav').addClass('disappear');
+  }, 500);
+
+  let clicked = $(this).attr('id');
+  console.log('CLICKED', clicked)
+
+  setTimeout(function() {
+    $('main').width('100%');
+    switch (clicked) {
+      case "floopy-bird":
+        clearBoard();
+        $('#title').text('Floopy Bird').show();
+        $('#gameCanvas').show()
+        $('<button>', {id: 'start'}).text('New Game').on('click', startFloopy).appendTo('main');
+        break;
+      case "minesweeper":
+        clearBoard();
+        $('#title').text('Minesweeper').show();
+        $('#board').show()
+        if ($('.input').length === 0) {
+          generateInput();
+        }
+        break;
+    }
+    console.log("init hamburger")
+    initHamburger()
+  }, 800);
+}
+
+function playMusic() {
+  (music.paused) ? music.play() : music.pause();
+  $('header').hasClass('flash') ? $('header').removeClass('flash') : $('header').addClass('flash');
+}
+
+function previewFloopy() {
+  clearPreview();
+  $('#prv-fb').show();
+}
+
+function previewSweeper() {
+  clearPreview();
+  $('#prv-ms').show();
+}
+
+function previewAbout() {
+  clearPreview();
+  $('#prv-about').show();
+}
+
+function clearPreview() {
+  $('.preview').hide();
+}
+
+function clearPreviewEvents() {
+  $('#about').unbind('mouseover').unbind('mouseout');
+  $('#floopy-bird').unbind('mouseover').unbind('mouseout');
+  $('#minesweeper').unbind('mouseover').unbind('mouseout');
+}
+
+function clearBoard() {
+  $('#board').children().remove().hide();
+  $('#gameCanvas').hide();
+  $('#sound').remove();
+  $('button').remove();
+}
+
+function initHamburger() {
+  console.log("init hamburger!")
+  let $ham = $('<img>', {id: 'hamburger', src: './icons/hamburger.png'});
+
+  $ham.on('click', function() {
+    console.log("click")
+    $('nav').hasClass('disappear') ? $('nav').removeClass('disappear') : $('nav').addClass('disappear')
+  });
+
+  $('body').append($ham);
+}
+
+function initFloopyBird() {
+  $('header').hide();
+  $('nav').hide();
+  $('main').width('100%').height('98vh');
+  $('#gameCanvas').show();
+  $('<button>', {id: 'start'}).text('New Game').on('click', startFloopy).appendTo('main');
+}
+
+function startFloopy() {
+  $('#start').blur().prop('disabled', true);
+  $('main').focus();
+  startGame(window, document, drawModule);
+}
+
+function homeCharacter() {
+  document.onkeydown = function(event) {
+    keyCode = window.event.keyCode;
+    if (keyCode === 32) {
+      if (soundOn) {
+        flapSound.play();
+      }
+
+      flap = true;
+    }
+  }
+}
