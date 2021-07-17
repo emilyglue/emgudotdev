@@ -7,9 +7,14 @@ ctx.canvas.height = $('main').height()/3*2;
 const w = ctx.canvas.width;
 const h = ctx.canvas.height;
 
+// start bird on left middle of screen;
+let bird = {x: 45, y: h/2-15};
+const birdHeight = 50;
+const birdWidth = 50;
+
 // load original image
-const birdImg = new Image();
-birdImg.src = './img/bird.png';
+let birdImg = new Image();
+birdImg.src = 'public/images/bird.png';
 
 //keep track of whether bird is flapping
 let flap = false;
@@ -23,11 +28,6 @@ let time = 0;
 // store all current pipes in an array
 let pipes = [];
 const pipeWidth = 50;
-
-// start bird on left middle of screen;
-let bird = {x: 45, y: h/2-15};
-const birdHeight = 50;
-const birdWidth = 50;
 
 // store all current clouds in an array
 let clouds = [];
@@ -47,8 +47,8 @@ ctx.fillText('Press [space bar] to FLAP', w/2, h/2+40);
 ctx.fillText('Avoid the pipes!!!', w/2, h/2+60)
 
 // load audio
-const flapSound = new Audio('./sound/jump.mov');
-const gameOverSound = new Audio('./sound/game-over.wav');
+// const flapSound = new Audio('./sound/jump.mov');
+// const gameOverSound = new Audio('./sound/game-over.wav');
 
 const drawModule = function() {
   // draw clouds in background
@@ -60,11 +60,11 @@ const drawModule = function() {
       const cloudY = Math.floor(Math.random()*h);
       const cloud = Math.floor(Math.random()*4+1);
       const cloudImg = new Image();
-      cloudImg.src = `./img/cloud-${cloud}.png`;
+      cloudImg.src = `public/images/cloud-${cloud}.png`;
       cloudImg.onload = function() {
         ctx.drawImage(cloudImg, cloudX, cloudY, cloudWidth, cloudHeight);
       }
-      clouds.push({image: coudImg, x: cloudX, y: cloudY});
+      clouds.push({image: cloudImg, x: cloudX, y: cloudY});
     }
   }
 
@@ -90,9 +90,7 @@ const drawModule = function() {
   }
 
   const drawBird = function(x,y) {
-    birdImg.onload = function() {
-      ctx.drawImage(birdImg, x-30, y-25, 100, 100);
-    }
+    ctx.drawImage(birdImg, x-30, y-25, 100, 100);
   }
 
   const drawPipes = function (x, y, h, type) {
@@ -115,7 +113,6 @@ const drawModule = function() {
 
   const checkCollision = function() {
     for (let i = 0; i < pipes.length; i+=2) {
-      console.log(pipes[i].gap);
       if (((bird.y < pipes[i].height
           || bird.y + birdHeight >= pipes[i].height + pipes[i].gap)
           && bird.x + birdWidth >= pipes[i].x
@@ -143,7 +140,7 @@ const drawModule = function() {
     const cloudY = Math.floor(Math.random()*h);
     const cloud = Math.floor(Math.random()*2+1);
     const cloudImg = new Image();
-    cloudImg.src = `./img/cloud-${cloud}.png`;
+    cloudImg.src = `public/images/cloud-${cloud}.png`;
     clouds.push({image: cloudImg, x: cloudX, y: cloudY});
   }
 
@@ -189,7 +186,7 @@ const drawModule = function() {
   }
 
   const endGame = function(outcome) {
-    gameOverSound.play();
+    // gameOverSound.play();
     ctx.fillStyle = '#022B3A';
     ctx.font = '30px Arial';
     ctx.textAlign = 'center';
@@ -257,7 +254,7 @@ const drawModule = function() {
   }
 
   const init = function() {
-    console.log('initializing');
+    console.log('initializing game');
     initClouds();
     initBird();
     initPipes();
@@ -266,11 +263,13 @@ const drawModule = function() {
     newCloud = setInterval(addCloud, 10000)
   }
 
-  return {init}
+  return {
+    init
+  }
 }
 
 const addSoundFlappy = function() {
-  const sound = $('<div>', {id: 'sound'}).html(soundEmojis[0]).appendTo('main');
+  let sound = $('<div>', {id: 'sound'}).html(soundEmojis[0]).appendTo('main');
   if (soundOn) {
     $(this).html(soundEmojis[1]);
     sound = false;
@@ -285,17 +284,21 @@ const startGame = function(window, document, drawModule) {
   if ($('#sound').length === 0) {
     addSoundFlappy();
   }
-  drawModule.init();
+
+  drawModule().init();
 
   document.onkeydown = function(event) {
     keyCode = window.event.keyCode;
     if (keyCode === 32) {
       if (soundOn) {
-        flapSound.play();
+        // flapSound.play();
       }
-
       flap = true
     }
+  }
+
+  document.onkeyup = function(event) {
+    flap = false
   }
 }
 

@@ -178,7 +178,7 @@ button {
   font-family: 'Roboto Condensed', sans-serif;
   font-size: 20px;
   transition: 1s all;
-  margin: 0 auto;
+  margin: 20px auto;
 }
 
 /* .small {
