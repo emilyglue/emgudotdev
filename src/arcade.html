@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300,400&family=Roboto:wght@300,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" media="screen" href="public/stylesheets/arcade.css">
-    <link rel="stylesheet" type="text/css" media="screen" href="public/stylesheets/minesweeper.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="public/stylesheets/minesweepoji.css">
 
   </head>
   <body>
@@ -19,8 +19,8 @@
     </header>
     <nav class="col">
       <ul>
-        <li><a type="button" href="./index.html">about</a></li>
-        <li><a type="button" href="#" id="minesweeper">minesweeper</a></li>
+        <li><a type="button" href="./arcade.html" id="about">about</a></li>
+        <li><a type="button" href="#" id="minesweepoji">minesweepoji</a></li>
         <li><a type="button" href="#" id="floopy-bird">floopy</a></li>
       </ul>
     </nav>
@@ -28,13 +28,16 @@
     <main>
       <div class="preview" id="prv-about">
         <h2>About</h2>
+        <p>This is an arcade filled with random games to entertain yourself when you're bored.</p>
+        <p><span>HOVER</span> to see a preview displayed here</p>
+        <p><span>CLICK</span> to open a game</p>
       </div>
-      <div class="preview" id="prv-ms">
-        <h2>Minesweeper</h2>
-        <p>can you sweep all the mines</p>
-        <!-- <img> -->
+      <div class="preview" style="display:none;" id="prv-ms">
+        <h2>Minesweepoji</h2>
+        <p>Can you sweep all the mines??</p>
+        <img src="public/images/sweeper-preview.png">
       </div>
-      <div class="preview" id="prv-fb">
+      <div class="preview" style="display:none;" id="prv-fb">
         <h2>Floopy Bird</h2>
         <p>Test your flooping skills!</p>
         <!-- <img> -->
@@ -47,7 +50,7 @@
     </main>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="public/javascripts/sweeper.js"></script>
+    <script src="public/javascripts/minesweepoji.js"></script>
     <script src="public/javascripts/floopy.js"></script>
     <script src="public/javascripts/main.js"></script>
   </body>

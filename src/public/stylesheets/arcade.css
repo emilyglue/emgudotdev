@@ -22,11 +22,14 @@ body {
   min-width: 1000px;
 }
 
+header, nav, main {
+  height: 100vh;
+}
+
 header {
   background-color: black;
   color: white;
   font-family: Diskopia, Helvetica, sans-serif;
-  height: 100vh;
   width: 30vw;
   letter-spacing: .1em;
   transition: width 1s;
@@ -54,7 +57,6 @@ h3 {
 nav {
   z-index: 1;
   font-family: Karmatic, 'Times New Roman', serif;
-  height: 100vh;
   width: 20vw;
   overflow-x: hidden;
   transition: width 1s;
@@ -89,9 +91,9 @@ a:hover {
 
 main {
   background-color: #738290;
-  min-height: 100vh;
   width: 49vw;
   text-align: center;
+  justify-content: center;
   transition: width 1s;
 }
 
@@ -107,23 +109,26 @@ img {
 p {
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
+  font-size: 20px;
 }
 
 .preview {
-  display: none;
-  width: 80%;
-  margin: 50px auto;
-}
-
-#prv-about {
-  display: block;
   margin: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: -100px auto;
   height: 100%;
+  width: 80%;
+  padding: 0;
 }
+
+.preview img {
+  /* height: 100px; */
+}
+
+/* #prv-about {
+  display: flex;
+} */
 
 .col {
   display: flex;
@@ -201,11 +206,6 @@ button:hover {
   nav {
     width: 99vw;
     height: 20vh;
-  }
-
-  main {
-    width: 99vq;
-    height: 98;
   }
 }
 

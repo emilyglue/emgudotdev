@@ -21,7 +21,7 @@ function startNewGame() {
 function generateInput() {
   let $modal = $('<div>', {class: 'modal'}).appendTo('#board');
   let $inputDiv = $('<div>', {class: 'input modal-content'}).appendTo($modal);
-  $('<h3>').text('Welcome to Minesweeper').appendTo($inputDiv);
+  $('<h3>').text('Welcome to minesweepoji').appendTo($inputDiv);
   for (let i = 0; i < input.length; i++) {
       const prop = input[i];
       $('<label>', {for: prop}).text(`Number of ${prop}s:`).appendTo($inputDiv);

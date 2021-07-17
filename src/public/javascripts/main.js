@@ -1,16 +1,13 @@
 const music = new Audio('../sound/wii-plaza.mp3');
 
 $('header').on('click', playMusic)
-
 $('#about').on('mouseover', previewAbout);
 
 $('#floopy-bird').on('mouseover', previewFloopy);
-// $('#floopy-bird').on('mouseout', clearPreview);
 $('#floopy-bird').on('click', initGame);
 
-$('#minesweeper').on('mouseover', previewSweeper);
-// $('#minesweeper').on('mouseout', clearPreview);
-$('#minesweeper').on('click', initGame);
+$('#minesweepoji').on('mouseover', previewSweeper);
+$('#minesweepoji').on('click', initGame);
 
 function initGame() {
   clearPreview();
@@ -36,9 +33,9 @@ function initGame() {
         $('#gameCanvas').show()
         $('<button>', {id: 'start'}).text('New Game').on('click', startFloopy).appendTo('main');
         break;
-      case "minesweeper":
+      case "minesweepoji":
         clearBoard();
-        $('#title').text('Minesweeper').show();
+        $('#title').text('minesweepoji').show();
         $('#board').show()
         if ($('.input').length === 0) {
           generateInput();
@@ -77,7 +74,7 @@ function clearPreview() {
 function clearPreviewEvents() {
   $('#about').unbind('mouseover').unbind('mouseout');
   $('#floopy-bird').unbind('mouseover').unbind('mouseout');
-  $('#minesweeper').unbind('mouseover').unbind('mouseout');
+  $('#minesweepoji').unbind('mouseover').unbind('mouseout');
 }
 
 function clearBoard() {
