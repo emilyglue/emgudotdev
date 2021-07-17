@@ -22,8 +22,12 @@ body {
   min-width: 1000px;
 }
 
-header, nav, main {
+header, nav {
   height: 100vh;
+}
+
+main {
+  min-height: 100vh;
 }
 
 header {
