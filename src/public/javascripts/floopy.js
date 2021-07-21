@@ -286,7 +286,7 @@ const addSoundFlappy = function() {
 // when game starts, draw canvas and add the space bar event listener
 const startGame = function(window, document, drawModule) {
   if ($('#sound').length === 0) {
-    addSoundFlappy();
+    // addSoundFlappy();
   }
 
   drawModule().init();

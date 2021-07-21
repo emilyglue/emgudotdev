@@ -73,11 +73,15 @@ nav {
   width: 0;
 }
 
+.disappear ul {
+  display: none;
+}
+
 nav ul {
   padding: 0 30px;
   line-height: 30px;
   width: 100%;
-  /* overflow: scroll; */
+  display: block;
   list-style-type: none;
 }
 

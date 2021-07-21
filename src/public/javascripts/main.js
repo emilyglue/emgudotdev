@@ -12,7 +12,7 @@ $('#minesweepoji').on('click', initGame);
 function initGame() {
   clearPreview();
   clearPreviewEvents();
-  music.pause();
+  // music.pause();
 
   $('h1').addClass('zoomOut');
 

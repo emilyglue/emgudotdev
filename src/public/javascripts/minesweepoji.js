@@ -68,7 +68,7 @@ function generateBoard() {
       }
       addNumbers();
       $('<h3>', {id: 'minesScore'}).text('Mines left: ' + mines).appendTo($('#board'))
-      addSound();
+    //   addSound();
   }
   else {
       $('#error').show();
