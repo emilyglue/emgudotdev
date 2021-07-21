@@ -1,4 +1,5 @@
 package:
+	rm -rf portfolio.zip
 	zip -r portfolio.zip .
 
 deploy:

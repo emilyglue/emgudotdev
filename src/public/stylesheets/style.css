@@ -13,11 +13,8 @@
 }
 
 h1 {
-  /* font-family: 'Josefin Sans'; */
   font-weight: 800;
   text-transform: uppercase;
-  /* margin-left: 50px;
-  font-size: 3rem; */
   font-size: 3rem;
 }
 
@@ -61,10 +58,6 @@ b {
   background-color: var(--dark);
 }
 
-.overlay {
-  height: 100vh
-}
-
 .center {
   display: flex;
   flex-direction: column;
@@ -103,30 +96,18 @@ b {
   font-weight: 700;
 }
 
-/* .subtitle {
-  opacity: 90%;
-  z-index: 1;
-  text-transform: uppercase;
-  position: absolute;
-  top: calc(100vh / 2 + 6rem);
-  width: 100%;
-  text-align: center;
-} */
-
 .footer {
-  width: 100%;
+  margin-top: 100px;
   z-index: 1;
   bottom: 1rem;
-  position: absolute;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  font-size: 1.5rem;
+  font-size: .75rem;
   text-transform: lowercase;
+  background-color: var(--primary-blue);
+  color: white;
 }
 
 .contact a {
+  margin: 0 5px;
   color: white;
   text-decoration: underline solid transparent;
   transition: text-decoration .5s ease;
@@ -177,12 +158,41 @@ section .content {
   margin: 0 auto;
 }
 
-section img {
+section#about img {
   display: block;
   width: 33%;
   margin: 1rem;
   /* border-radius: 25px; */
+}
 
+div.preview {
+  height: 200px;
+  width: 200px;
+  background-position: center;
+  background-size: contain;
+  background-image: url('../images/gamestop.png');
+}
+
+.app {
+  position: relative;
+  width: 200px;
+  height: 200px;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  opacity: 0;
+  text-align: center;
+  text-decoration: none;
+}
+
+.overlay:hover {
+  opacity: 1;
+  background-color: var(--soft-gray);
+  padding: 10px;
+  transition: opacity .5s ease;
 }
 
 .container {
@@ -261,10 +271,10 @@ nav li a {
 .light, .light a{
   color: var(--dark);
 }
-
+/* 
 .light a:hover {
   color: var(--dark-gray);
-}
+} */
 
 .dark, .dark a {
   color: var(--soft-white);
@@ -385,4 +395,4 @@ a.button:hover {
     flex-direction: column;
     justify-content: center;
   }
-} */
+} *./public
